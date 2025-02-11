@@ -23,7 +23,6 @@ class NewPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_passeord)
 
-        // ربط العناصر الصحيحة
         passwordField = findViewById(R.id.password1_newpass)
         confirmPasswordField = findViewById(R.id.password2_newpass)
         showPasswordCheckbox = findViewById(R.id.showPasswordCheckbox_newpass)
@@ -34,7 +33,6 @@ class NewPasswordActivity : AppCompatActivity() {
             startActivity(Intent(this, OtpVerificationActivity::class.java))
         }
 
-        // تفعيل إظهار/إخفاء كلمة المرور عند الضغط على CheckBox
         showPasswordCheckbox.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 passwordField.transformationMethod = HideReturnsTransformationMethod.getInstance()
@@ -45,7 +43,6 @@ class NewPasswordActivity : AppCompatActivity() {
             }
         }
 
-        // التحقق عند الضغط على زر "Verify"
         verifyButton.setOnClickListener {
             val password = passwordField.text.toString()
             val confirmPassword = confirmPasswordField.text.toString()
@@ -61,7 +58,6 @@ class NewPasswordActivity : AppCompatActivity() {
             }
         }
 
-        // زر الرجوع
         backButton.setOnClickListener {
             finish()
         }

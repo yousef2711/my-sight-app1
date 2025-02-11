@@ -11,13 +11,10 @@ class SuccesChangePassActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_succes_change_pass)
 
-        // تحديد الصورة
         val successPopup: ImageView = findViewById(R.id.successPopup)
 
-        // تحميل الأنيميشن
         val animation = AnimationUtils.loadAnimation(this, R.anim.success_popup_animation)
 
-        // تشغيل الأنيميشن
         successPopup.startAnimation(animation)
     }
 }

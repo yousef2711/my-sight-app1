@@ -8,7 +8,6 @@
     android:background="@color/white"
     tools:context=".ui.NewPasswordActivity">
 
-    <!-- زر الرجوع -->
     <ImageView
         android:id="@+id/backButton_newpass"
         android:layout_width="24dp"
@@ -21,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="UseAppTint" />
 
-    <!-- عنوان الشاشة -->
     <TextView
         android:id="@+id/titleText_newpass"
         android:layout_width="wrap_content"
@@ -34,7 +32,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/backButton_newpass" />
 
-    <!-- عنوان إدخال كلمة المرور -->
     <TextView
         android:id="@+id/subTitleText_newpass"
         android:layout_width="wrap_content"
@@ -48,7 +45,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleText_newpass" />
 
-    <!-- حقل كلمة المرور الأولى -->
     <LinearLayout
         android:id="@+id/passwordContainer1_newpass"
         android:layout_width="0dp"
@@ -84,7 +80,6 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-    <!-- حقل كلمة المرور الثانية -->
     <LinearLayout
         android:id="@+id/passwordContainer2_newpass"
         android:layout_width="0dp"
@@ -121,7 +116,6 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-    <!-- خيار إظهار كلمة المرور -->
     <CheckBox
         android:id="@+id/showPasswordCheckbox_newpass"
         android:layout_width="wrap_content"

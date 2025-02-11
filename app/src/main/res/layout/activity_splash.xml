@@ -5,7 +5,6 @@
     android:gravity="center"
     android:background="@drawable/bg_sc_splash">
 
-    <!-- يمكنك إضافة صورة أخرى إذا أردت -->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -8,7 +8,6 @@
     android:background="@color/white"
     tools:context=".ui.LoginActivity">
 
-    <!-- الخلفية -->
     <ImageView
         android:id="@+id/bg_ImageForget"
         android:layout_width="match_parent"

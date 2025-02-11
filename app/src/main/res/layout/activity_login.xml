@@ -8,7 +8,6 @@
     android:background="@color/white"
     tools:context=".ui.LoginActivity">
 
-    <!-- الخلفية -->
     <ImageView
         android:id="@+id/bg_patirnt_login"
         android:layout_width="match_parent"
@@ -20,9 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- اللوجو -->
     <ImageView
-
         android:id="@+id/logo_login"
         android:layout_width="126dp"
         android:layout_height="42dp"
@@ -33,7 +30,7 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/bg_patirnt_login" />
-    <!-- العنوان -->
+
     <TextView
         android:id="@+id/titleText_login"
         android:layout_width="wrap_content"
@@ -46,7 +43,6 @@
         app:layout_constraintStart_toStartOf="@+id/logo_login"
         app:layout_constraintTop_toBottomOf="@+id/logo_login" />
 
-    <!-- النص الفرعي -->
     <TextView
         android:id="@+id/subText_login"
         android:layout_width="wrap_content"
@@ -57,7 +53,6 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/titleText_login"
         app:layout_constraintTop_toBottomOf="@+id/titleText_login" />
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/container_login"
@@ -78,7 +73,6 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- زر تسجيل الدخول والتسجيل -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,7 +98,6 @@
                     android:textColor="@android:color/black" />
             </LinearLayout>
 
-            <!-- حقل البريد الإلكتروني -->
             <EditText
 
                 android:id="@+id/email_login"
@@ -116,7 +109,6 @@
                 android:padding="12dp"
                 android:textSize="16sp" />
 
-            <!-- حقل كلمة المرور -->
             <EditText
                 android:id="@+id/password_login"
                 android:layout_marginTop="8dp"
@@ -131,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp">
-                <!-- تذكرني -->
+
                 <CheckBox
                     android:id="@+id/rememberMe_login"
                     android:layout_width="wrap_content"
@@ -151,7 +143,6 @@
 
             </LinearLayout>
 
-            <!-- زر تسجيل الدخول -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_Login_login"
                 android:layout_width="match_parent"
@@ -162,7 +153,6 @@
                 android:textColor="@color/white"
                 app:cornerRadius="10dp" />
 
-            <!-- قسم "أو" مع الخطين -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -192,7 +182,6 @@
             </LinearLayout>
 
 
-            <!-- زر تسجيل الدخول عبر Google -->
             <Button
                 android:id="@+id/btnGoogle_login"
                 android:layout_width="match_parent"
@@ -204,7 +193,6 @@
                 android:text="Continue with Google"
                 android:textColor="@android:color/black"/>
 
-            <!-- زر تسجيل الدخول عبر Facebook -->
             <Button
                 android:id="@+id/btnFacebook_login"
                 android:layout_width="match_parent"

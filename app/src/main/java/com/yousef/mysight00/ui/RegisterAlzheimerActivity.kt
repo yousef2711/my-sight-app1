@@ -15,6 +15,6 @@ class RegisterAlzheimerActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
-        }, 5000) // تأخير 10 ثوانٍ
+        }, 5000)
     }
 }

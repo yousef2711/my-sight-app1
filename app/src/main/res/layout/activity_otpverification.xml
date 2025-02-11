@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.OtpVerificationActivity">
 
-    <!-- زر الرجوع -->
     <ImageView
         android:id="@+id/btnBack_otp"
         android:layout_width="24dp"
@@ -20,9 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="UseAppTint" />
 
-    <!-- عنوان الشاشة -->
-
-    <!-- نص التحقق -->
     <TextView
         android:id="@+id/tvTitle_otp"
         android:layout_width="wrap_content"
@@ -60,7 +56,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvVerify_otp" />
 
-    <!-- إدخال الكود OTP -->
     <LinearLayout
         android:id="@+id/otpContainer_otp"
         android:layout_width="wrap_content"
@@ -111,7 +106,6 @@
             android:maxLength="1"/>
     </LinearLayout>
 
-    <!-- رابط إعادة إرسال الكود -->
     <TextView
         android:id="@+id/tvDontCode_otp"
         android:layout_width="wrap_content"
@@ -138,11 +132,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDontCode_otp" />
 
-    <!-- رقم الصفحة -->
-
-    <!-- شريط التقدم -->
-
-    <!-- زر التحقق -->
 
     <TextView
         android:id="@+id/tvPageNumber_otp"

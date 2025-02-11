@@ -12,12 +12,12 @@ import com.yousef.mysight00.R
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide() // إخفاء الـ Action Bar
-        setContentView(R.layout.activity_splash) // تعيين شاشة السبلاتش
+        supportActionBar?.hide()
+        setContentView(R.layout.activity_splash)
 
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, LoginActivity::class.java))
-            finish() // إنهاء الـ SplashActivity بعد الانتقال
-        }, 3000) // مدة عرض السبلاتش
+            finish()
+        }, 3000)
     }
 }

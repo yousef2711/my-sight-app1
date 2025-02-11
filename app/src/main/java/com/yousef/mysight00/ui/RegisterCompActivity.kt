@@ -15,6 +15,6 @@ class RegisterCompActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, RegisterBlindActivity::class.java))
             finish()
-        }, 5000) // تأخير 10 ثوانٍ قبل الانتقال إلى الشاشة التالية
+        }, 5000)
     }
 }
