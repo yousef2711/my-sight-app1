@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.NewPasswordActivity">
+
+    <!-- زر الرجوع -->
+    <ImageView
+        android:id="@+id/backButton_newpass"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:tint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseAppTint" />
+
+    <!-- عنوان الشاشة -->
+    <TextView
+        android:id="@+id/titleText_newpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backButton_newpass" />
+
+    <!-- عنوان إدخال كلمة المرور -->
+    <TextView
+        android:id="@+id/subTitleText_newpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Create a New Password"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText_newpass" />
+
+    <!-- حقل كلمة المرور الأولى -->
+    <LinearLayout
+        android:id="@+id/passwordContainer1_newpass"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_shape_pass"
+        android:backgroundTint="#F3F3F3"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subTitleText_newpass">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_lock"
+            android:layout_gravity="center"/>
+
+        <EditText
+            android:id="@+id/password1_newpass"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="******************"
+            android:textStyle="bold"
+            android:inputType="textPassword"
+            android:autofillHints="password"
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- حقل كلمة المرور الثانية -->
+    <LinearLayout
+        android:id="@+id/passwordContainer2_newpass"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_shape_pass"
+        android:backgroundTint="#F3F3F3"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordContainer1_newpass">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_lock" />
+
+        <EditText
+            android:id="@+id/password2_newpass"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:hint="******************"
+            android:textStyle="bold"
+            android:inputType="textPassword"
+            android:autofillHints="password"
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- خيار إظهار كلمة المرور -->
+    <CheckBox
+        android:id="@+id/showPasswordCheckbox_newpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:text="Show Password"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/passwordContainer2_newpass"
+        app:layout_constraintTop_toBottomOf="@id/passwordContainer2_newpass" />
+
+    <TextView
+        android:id="@+id/tvPageNumber_newpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:text="2 of 2"
+        android:textColor="@color/dark"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar_newpass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showPasswordCheckbox_newpass"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_newpass"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="60dp"
+        android:progress="100"
+        android:progressTint="@color/primary_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showPasswordCheckbox_newpass" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVerify_newpass"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/black"
+        android:text="Verify"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar_newpass" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
