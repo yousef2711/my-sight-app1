@@ -9,43 +9,17 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/Theme.MySight">
+
+        <!-- تعريف MainActivity كنقطة البداية للتطبيق -->
         <activity
-            android:name=".ui.HOmeCompanianActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.SuccesChangePassActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.NewPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.OtpVerificationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.ForgetPassActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.FormCompActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.RegisterAlzheimerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.RegisterBlindActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.RegisterCompActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.LoginActivity" />
+
     </application>
 
 </manifest>

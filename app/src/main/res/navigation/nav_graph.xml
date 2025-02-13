@@ -1,0 +1,114 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/splashFragment">
+
+    <!-- Splash Screen -->
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.yousef.mysight00.ui.SplashFragment"
+        android:label="Splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <!-- Login Fragment -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.yousef.mysight00.ui.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_forgetPassFragment"
+            app:destination="@id/forgetPassFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerCompFragment"
+            app:destination="@id/registerCompFragment" />
+    </fragment>
+
+    <!-- Forget Password Fragment -->
+    <fragment
+        android:id="@+id/forgetPassFragment"
+        android:name="com.yousef.mysight00.ui.ForgetPassFragment"
+        android:label="Forget Password"
+        tools:layout="@layout/fragment_forget_pass">
+        <action
+            android:id="@+id/action_forgetPassFragment_to_otpVerificationFragment"
+            app:destination="@id/otpVerificationFragment" />
+        <action
+            android:id="@+id/action_forgetPassFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
+    </fragment>
+
+    <!-- OTP Verification Fragment -->
+    <fragment
+        android:id="@+id/otpVerificationFragment"
+        android:name="com.yousef.mysight00.ui.OtpVerificationFragment"
+        android:label="OTP Verification"
+        tools:layout="@layout/fragment_otpverification">
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_newPasswordFragment"
+            app:destination="@id/newPasswordFragment" />
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_forgetPassFragment"
+            app:destination="@id/forgetPassFragment" />
+    </fragment>
+
+    <!-- New Password Fragment -->
+    <fragment
+        android:id="@+id/newPasswordFragment"
+        android:name="com.yousef.mysight00.ui.NewPasswordFragment"
+        android:label="New Password"
+        tools:layout="@layout/fragment_new_password">
+        <action
+            android:id="@+id/action_newPasswordFragment_to_successChangePassFragment"
+            app:destination="@id/successChangePassFragment" />
+        <action
+            android:id="@+id/action_newPasswordFragment_to_otpVerificationFragment"
+            app:destination="@id/otpVerificationFragment" />
+    </fragment>
+
+    <!-- Success Change Password Fragment -->
+    <fragment
+        android:id="@+id/successChangePassFragment"
+        android:name="com.yousef.mysight00.ui.SuccesChangePassFragment"
+        android:label="Success Change Password"
+        tools:layout="@layout/fragment_succes_change_pass" />
+
+    <!-- Register Companion Fragment -->
+    <fragment
+        android:id="@+id/registerCompFragment"
+        android:name="com.yousef.mysight00.ui.RegisterCompFragment"
+        android:label="Register Companion"
+        tools:layout="@layout/fragment_register_comp">
+        <action
+            android:id="@+id/action_registerCompFragment_to_registerAlzheimerFragment"
+            app:destination="@id/registerAlzheimerFragment" />
+    </fragment>
+
+    <!-- Register Alzheimer Fragment -->
+    <fragment
+        android:id="@+id/registerAlzheimerFragment"
+        android:name="com.yousef.mysight00.ui.RegisterAlzheimerFragment"
+        android:label="Register Alzheimer"
+        tools:layout="@layout/fragment_register_alzheimer">
+        <action
+            android:id="@+id/action_registerAlzheimerFragment_to_registerBlindFragment"
+            app:destination="@id/registerBlindFragment" />
+    </fragment>
+
+    <!-- Register Blind Fragment -->
+    <fragment
+        android:id="@+id/registerBlindFragment"
+        android:name="com.yousef.mysight00.ui.RegisterBlindFragment"
+        android:label="Register Blind"
+        tools:layout="@layout/fragment_register_blind">
+        <action
+            android:id="@+id/action_registerBlindFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+</navigation>
