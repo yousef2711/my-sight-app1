@@ -27,7 +27,6 @@ class RegisterCompFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // تأخير الانتقال التلقائي لمدة 2.5 ثانية (2500 مللي ثانية)
         Handler(Looper.getMainLooper()).postDelayed({
             findNavController().navigate(R.id.action_registerCompFragment_to_registerAlzheimerFragment)
         }, 2500)

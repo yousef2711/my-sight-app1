@@ -33,12 +33,10 @@ class NewPasswordFragment : Fragment() {
         val verifyButton = view.findViewById<MaterialButton>(R.id.btnVerify_newpass)
         val backButton = view.findViewById<ImageView>(R.id.backButton_newpass)
 
-        // زر الرجوع
         backButton.setOnClickListener {
             findNavController().navigate(R.id.action_newPasswordFragment_to_otpVerificationFragment)
         }
 
-        // إظهار/إخفاء كلمة المرور
         showPasswordCheckbox.setOnCheckedChangeListener { _, isChecked ->
             val transformationMethod = if (isChecked) {
                 HideReturnsTransformationMethod.getInstance()
@@ -48,12 +46,10 @@ class NewPasswordFragment : Fragment() {
             passwordField.transformationMethod = transformationMethod
             confirmPasswordField.transformationMethod = transformationMethod
 
-            // لضمان تحديث العرض بعد تغيير الرؤية
             passwordField.setSelection(passwordField.text.length)
             confirmPasswordField.setSelection(confirmPasswordField.text.length)
         }
 
-        // زر التحقق وتغيير كلمة المرور
         verifyButton.setOnClickListener {
             val password = passwordField.text.toString().trim()
             val confirmPassword = confirmPasswordField.text.toString().trim()

@@ -25,12 +25,10 @@ class OtpVerificationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // زر التحقق (ينقل إلى شاشة إنشاء كلمة مرور جديدة)
         binding.btnVerifyOtp.setOnClickListener {
             findNavController().navigate(R.id.action_otpVerificationFragment_to_newPasswordFragment)
         }
 
-        // زر الرجوع (ينقل إلى شاشة نسيان كلمة المرور)
         binding.btnBackOtp.setOnClickListener {
             findNavController().navigate(R.id.action_otpVerificationFragment_to_forgetPassFragment)
         }
