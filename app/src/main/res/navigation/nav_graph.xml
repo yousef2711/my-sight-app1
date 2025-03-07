@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/splashFragment">
 
-    <!-- Splash Screen -->
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.yousef.mysight00.ui.SplashFragment"
@@ -14,7 +13,6 @@
             app:destination="@id/loginFragment" />
     </fragment>
 
-    <!-- Login Fragment -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.yousef.mysight00.ui.LoginFragment"
@@ -26,9 +24,65 @@
         <action
             android:id="@+id/action_loginFragment_to_registerCompFragment"
             app:destination="@id/registerCompFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeCompanionFragment"
+            app:destination="@id/homeCompanionFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeAlzheimerFragment"
+            app:destination="@id/homeAlzheimerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeBlindFragment"
+            app:destination="@id/homeBlindFragment" />
     </fragment>
 
-    <!-- Forget Password Fragment -->
+    <fragment
+        android:id="@+id/registerCompFragment"
+        android:name="com.yousef.mysight00.ui.RegisterCompFragment"
+        android:label="Register Companion"
+        tools:layout="@layout/fragment_register_comp">
+        <action
+            android:id="@+id/action_registerCompFragment_to_registerAlzheimerFragment"
+            app:destination="@id/registerAlzheimerFragment" />
+        <action
+            android:id="@+id/action_registerCompFragment_to_registerBlindFragment"
+            app:destination="@id/registerBlindFragment" />
+        <action
+            android:id="@+id/action_registerCompFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerAlzheimerFragment"
+        android:name="com.yousef.mysight00.ui.RegisterAlzheimerFragment"
+        android:label="Register Alzheimer"
+        tools:layout="@layout/fragment_register_alzheimer">
+        <action
+            android:id="@+id/action_registerAlzheimerFragment_to_registerBlindFragment"
+            app:destination="@id/registerBlindFragment" />
+        <action
+            android:id="@+id/action_registerAlzheimerFragment_to_registerAlzheimerFragment"
+            app:destination="@id/registerAlzheimerFragment" />
+        <action
+            android:id="@+id/action_registerCompFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerBlindFragment"
+        android:name="com.yousef.mysight00.ui.RegisterBlindFragment"
+        android:label="Register Blind"
+        tools:layout="@layout/fragment_register_blind">
+        <action
+            android:id="@+id/action_loginFragment_to_registerAlzheimerFragment"
+            app:destination="@id/registerAlzheimerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeCompanionFragment"
+            app:destination="@id/homeCompanionFragment" />
+        <action
+            android:id="@+id/action_registerBlindFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/forgetPassFragment"
         android:name="com.yousef.mysight00.ui.ForgetPassFragment"
@@ -40,10 +94,8 @@
         <action
             android:id="@+id/action_forgetPassFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-
     </fragment>
 
-    <!-- OTP Verification Fragment -->
     <fragment
         android:id="@+id/otpVerificationFragment"
         android:name="com.yousef.mysight00.ui.OtpVerificationFragment"
@@ -57,7 +109,6 @@
             app:destination="@id/forgetPassFragment" />
     </fragment>
 
-    <!-- New Password Fragment -->
     <fragment
         android:id="@+id/newPasswordFragment"
         android:name="com.yousef.mysight00.ui.NewPasswordFragment"
@@ -71,44 +122,35 @@
             app:destination="@id/otpVerificationFragment" />
     </fragment>
 
-    <!-- Success Change Password Fragment -->
     <fragment
         android:id="@+id/successChangePassFragment"
-        android:name="com.yousef.mysight00.ui.SuccesChangePassFragment"
+        android:name="com.yousef.mysight00.ui.SuccessChangePassFragment"
         android:label="Success Change Password"
-        tools:layout="@layout/fragment_succes_change_pass" />
-
-    <!-- Register Companion Fragment -->
-    <fragment
-        android:id="@+id/registerCompFragment"
-        android:name="com.yousef.mysight00.ui.RegisterCompFragment"
-        android:label="Register Companion"
-        tools:layout="@layout/fragment_register_comp">
+        tools:layout="@layout/fragment_succes_change_pass">
         <action
-            android:id="@+id/action_registerCompFragment_to_registerAlzheimerFragment"
-            app:destination="@id/registerAlzheimerFragment" />
-    </fragment>
-
-    <!-- Register Alzheimer Fragment -->
-    <fragment
-        android:id="@+id/registerAlzheimerFragment"
-        android:name="com.yousef.mysight00.ui.RegisterAlzheimerFragment"
-        android:label="Register Alzheimer"
-        tools:layout="@layout/fragment_register_alzheimer">
-        <action
-            android:id="@+id/action_registerAlzheimerFragment_to_registerBlindFragment"
-            app:destination="@id/registerBlindFragment" />
-    </fragment>
-
-    <!-- Register Blind Fragment -->
-    <fragment
-        android:id="@+id/registerBlindFragment"
-        android:name="com.yousef.mysight00.ui.RegisterBlindFragment"
-        android:label="Register Blind"
-        tools:layout="@layout/fragment_register_blind">
-        <action
-            android:id="@+id/action_registerBlindFragment_to_loginFragment"
+            android:id="@+id/action_successChangePassFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 
+
+    <fragment
+        android:id="@+id/homeCompanionFragment"
+        android:name="com.yousef.mysight00.ui.HomeCompanionFragment"
+        android:label="Home Companion"
+        tools:layout="@layout/fragment_home_companion">
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeAlzheimerFragment"
+        android:name="com.yousef.mysight00.ui.HomeAlzheimerFragment"
+        android:label="Home Alzheimer"
+        tools:layout="@layout/fragment_home_alzheimer">
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeBlindFragment"
+        android:name="com.yousef.mysight00.ui.HomeBlindFragment"
+        android:label="Home Blind"
+        tools:layout="@layout/fragment_home_blind">
+    </fragment>
 </navigation>

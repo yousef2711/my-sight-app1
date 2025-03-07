@@ -2,10 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
 
-    <!-- لون الخلفية -->
-    <solid android:color="#FFFFFF" /> <!-- غير اللون حسب الحاجة -->
+    <solid android:color="#FFFFFF" />
 
-    <!-- تحديد زوايا مستديرة فقط من الأعلى -->
     <corners android:topLeftRadius="24dp" android:topRightRadius="24dp" />
 </shape>
 

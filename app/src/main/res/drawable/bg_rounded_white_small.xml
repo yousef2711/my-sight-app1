@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
 
-    <!-- اللون الداخلي للمربع -->
     <solid android:color="@android:color/white"/>
 
-    <!-- حواف دائرية -->
     <corners android:radius="8dp"/>
 
-    <!-- إطار خارجي -->
     <stroke android:width="2dp" android:color="@color/gray_lite"/>
 
-    <!-- ظل عند التفاعل -->
     <padding android:left="8dp" android:right="8dp"/>
 
 </shape>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- الثيم الخاص بالتطبيق -->
     <style name="Theme.MySight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,7 +12,6 @@
         <item name="android:navigationBarColor">@color/black</item>
     </style>
 
-    <!-- الثيم الخاص بشاشة الـ Splash -->
     <style name="Theme.MySight.Splash" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/bg_sc_splash</item>
     </style>

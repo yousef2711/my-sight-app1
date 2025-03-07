@@ -9,17 +9,30 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/Theme.MySight">
-
-        <!-- تعريف MainActivity كنقطة البداية للتطبيق -->
+        <activity
+            android:name=".ui.GpsBlindFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ui.GpsAlzheimerFragmentUnsafe"
+            android:exported="false" />
+        <activity
+            android:name=".ui.HomeBlindFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ui.HomeAlzhaimerFragment"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ProfileFragment"
+            android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        android:itemBackground="@drawable/bg_rounded_blue_oval"/>
+
+    <item
+        android:id="@+id/nav_gps"
+        android:icon="@drawable/ic_gps"
+        android:title="Gps" />
+</menu>
