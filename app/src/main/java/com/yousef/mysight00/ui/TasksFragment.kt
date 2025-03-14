@@ -11,10 +11,18 @@ import com.yousef.mysight00.R
 import com.yousef.mysight00.ui.adapter.DaysAdapter
 import com.yousef.mysight00.ui.adapter.TaskAdapter
 import com.yousef.mysight00.ui.model.TaskModel
+
 import java.text.SimpleDateFormat
 import java.util.*
 
 class TasksFragment : Fragment() {
+
+    private lateinit var taskAdapter: TaskAdapter
+    private val taskList = mutableListOf(
+        TaskModel("Design Changes", "2 Days ago", false),
+        TaskModel("Fix Bugs", "3 Days ago", true),
+        TaskModel("Update UI", "1 Day ago", false)
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,8 +35,6 @@ class TasksFragment : Fragment() {
         rvDays.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         val daysList = generateDays()
-        println("📆 Days List: $daysList")
-
         val daysAdapter = DaysAdapter(daysList) { day ->
             println("🖱️ تم الضغط على اليوم: $day")
         }
@@ -38,13 +44,21 @@ class TasksFragment : Fragment() {
         val rvTasks = view.findViewById<RecyclerView>(R.id.recyclerViewTasks)
         rvTasks.layoutManager = LinearLayoutManager(requireContext())
 
-        val taskList = listOf(
-            TaskModel("Design Changes", "2 Days ago", false),
-            TaskModel("Fix Bugs", "3 Days ago", true),
-            TaskModel("Update UI", "1 Day ago", false)
-        )
+        taskAdapter = TaskAdapter(taskList, object : TaskAdapter.TaskActionListener {
+            override fun onSendTask(task: TaskModel) {
+                println("📤 إرسال المهمة: ${task.name}")
+            }
 
-        val taskAdapter = TaskAdapter(taskList)
+            override fun onDeleteTask(task: TaskModel) {
+                taskList.remove(task)
+                taskAdapter.notifyDataSetChanged()
+            }
+
+            override fun onEditTask(task: TaskModel) {
+                println("✏️ تعديل المهمة: ${task.name}")
+            }
+        })
+
         rvTasks.adapter = taskAdapter
 
         return view
@@ -58,7 +72,6 @@ class TasksFragment : Fragment() {
 
         for (i in 1..7) {
             val day = format.format(calendar.time)
-            println("✅ Generated Day: $day")
             days.add(day)
             calendar.add(Calendar.DAY_OF_MONTH, 1)
         }

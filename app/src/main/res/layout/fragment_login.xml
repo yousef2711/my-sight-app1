@@ -99,25 +99,27 @@
             </LinearLayout>
 
             <EditText
-
                 android:id="@+id/email_login"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="24dp"
                 android:background="@drawable/btn_text_rounded"
                 android:hint="Email"
+                android:inputType="textEmailAddress"
                 android:padding="12dp"
                 android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/password_login"
-                android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/btn_text_rounded"
                 android:hint="Password"
+                android:inputType="textPassword"
                 android:padding="12dp"
                 android:textSize="16sp" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"

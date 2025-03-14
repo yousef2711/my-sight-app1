@@ -19,7 +19,7 @@ class ProfileAdapter(private val itemList: List<ProfileItem>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_profile, parent, false)
+            .inflate(R.layout.fragment_profile_companion, parent, false)
         return ProfileViewHolder(view)
     }
 

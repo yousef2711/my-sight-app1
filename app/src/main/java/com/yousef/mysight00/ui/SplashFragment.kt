@@ -14,7 +14,7 @@ class SplashFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
 
@@ -22,7 +22,13 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            if (isAdded) {  // تأكد أن الـ Fragment لا يزال مرتبطًا بـ Activity
+                try {
+                    findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+                } catch (e: Exception) {
+                    e.printStackTrace() // طباعة الخطأ في Logcat إذا حدث
+                }
+            }
         }, 3000)
     }
 }

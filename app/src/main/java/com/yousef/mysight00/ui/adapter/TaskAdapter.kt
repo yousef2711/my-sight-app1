@@ -11,29 +11,30 @@ import com.yousef.mysight00.R
 import com.yousef.mysight00.databinding.ItemTaskBinding
 import com.yousef.mysight00.ui.model.TaskModel
 
-class TaskAdapter(private val taskList: List<TaskModel>, private val listener: TaskActionListener) :
-    RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(
+    private val taskList: MutableList<TaskModel>,
+    private val listener: TaskActionListener
+) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
-    class TaskViewHolder(private val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class TaskViewHolder(private val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(task: TaskModel, listener: TaskActionListener) {
+        fun bind(task: TaskModel) {
             binding.taskTitle.text = task.name
             binding.taskDate.text = task.date
 
-            // تحديث شكل الزر بناءً على الحالة
             updateButtonUI(task)
 
-            // عند الضغط على زر الصح/الغلط
             binding.btnCorrect.setOnClickListener {
-                task.isCorrect = !task.isCorrect
-                updateButtonUI(task)
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    taskList[position].isCorrect = !taskList[position].isCorrect
+                    notifyItemChanged(position)
+                }
             }
 
-            // عند الضغط على زر الثلاث نقاط
-            binding.btnMore.setOnClickListener { showPopupMenu(it, task, listener) }
+            binding.btnMore.setOnClickListener { showPopupMenu(it, task) }
         }
 
-        // ✅ تحديث الخلفية والأيقونة عند تغيير الحالة
         private fun updateButtonUI(task: TaskModel) {
             val context = binding.root.context
 
@@ -46,8 +47,7 @@ class TaskAdapter(private val taskList: List<TaskModel>, private val listener: T
             }
         }
 
-        // ✅ إظهار القائمة المنبثقة عند الضغط على زر الثلاث نقاط
-        private fun showPopupMenu(view: View, task: TaskModel, listener: TaskActionListener) {
+        private fun showPopupMenu(view: View, task: TaskModel) {
             val popup = PopupMenu(view.context, view)
             val inflater: MenuInflater = popup.menuInflater
             inflater.inflate(R.menu.menu_task_options, popup.menu)
@@ -60,6 +60,7 @@ class TaskAdapter(private val taskList: List<TaskModel>, private val listener: T
                     }
                     R.id.action_delete -> {
                         listener.onDeleteTask(task)
+                        notifyItemRemoved(adapterPosition)
                         true
                     }
                     R.id.action_edit -> {
@@ -69,7 +70,6 @@ class TaskAdapter(private val taskList: List<TaskModel>, private val listener: T
                     else -> false
                 }
             }
-
             popup.show()
         }
     }
@@ -80,15 +80,14 @@ class TaskAdapter(private val taskList: List<TaskModel>, private val listener: T
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        holder.bind(taskList[position], listener)
+        holder.bind(taskList[position])
     }
 
     override fun getItemCount(): Int = taskList.size
-}
 
-// ✅ واجهة لتحديد الإجراءات عند اختيار عنصر من القائمة
-interface TaskActionListener {
-    fun onSendTask(task: TaskModel)
-    fun onDeleteTask(task: TaskModel)
-    fun onEditTask(task: TaskModel)
+    interface TaskActionListener {
+        fun onSendTask(task: TaskModel)
+        fun onDeleteTask(task: TaskModel)
+        fun onEditTask(task: TaskModel)
+    }
 }

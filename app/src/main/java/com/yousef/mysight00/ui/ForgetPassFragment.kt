@@ -29,9 +29,6 @@ class ForgetPassFragment : Fragment() {
             findNavController().navigate(R.id.action_forgetPassFragment_to_loginFragment)
         }
 
-        binding.btnDoneForget.setOnClickListener {
-            findNavController().navigate(R.id.action_forgetPassFragment_to_otpVerificationFragment)
-        }
     }
 
     override fun onDestroyView() {

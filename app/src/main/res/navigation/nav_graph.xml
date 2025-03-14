@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +9,7 @@
         android:name="com.yousef.mysight00.ui.SplashFragment"
         android:label="Splash"
         tools:layout="@layout/fragment_splash">
+
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -47,7 +49,23 @@
             android:id="@+id/action_registerCompFragment_to_registerBlindFragment"
             app:destination="@id/registerBlindFragment" />
         <action
+            android:id="@+id/action_registerCompFragment_to_formCompFragment3"
+            app:destination="@id/formCompFragment3" />
+        <action
             android:id="@+id/action_registerCompFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/formCompFragment3"
+        android:name="com.yousef.mysight00.ui.FormCompFragment"
+        android:label="FormCompFragment"
+        tools:layout="@layout/fragment_form_comp">
+        <action
+            android:id="@+id/action_formCompFragment3_to_registerCompFragment"
+            app:destination="@id/registerCompFragment" />
+        <action
+            android:id="@+id/action_formCompFragment3_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 
@@ -57,13 +75,13 @@
         android:label="Register Alzheimer"
         tools:layout="@layout/fragment_register_alzheimer">
         <action
+            android:id="@+id/action_registerAlzheimerFragment_to_registerCompFragment"
+            app:destination="@id/registerCompFragment" />
+        <action
             android:id="@+id/action_registerAlzheimerFragment_to_registerBlindFragment"
             app:destination="@id/registerBlindFragment" />
         <action
-            android:id="@+id/action_registerAlzheimerFragment_to_registerAlzheimerFragment"
-            app:destination="@id/registerAlzheimerFragment" />
-        <action
-            android:id="@+id/action_registerCompFragment_to_loginFragment"
+            android:id="@+id/action_registerAlzheimerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 
@@ -73,11 +91,11 @@
         android:label="Register Blind"
         tools:layout="@layout/fragment_register_blind">
         <action
-            android:id="@+id/action_loginFragment_to_registerAlzheimerFragment"
-            app:destination="@id/registerAlzheimerFragment" />
+            android:id="@+id/action_registerBlindFragment_to_registerCompFragment"
+            app:destination="@id/registerCompFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_homeCompanionFragment"
-            app:destination="@id/homeCompanionFragment" />
+            android:id="@+id/action_registerBlindFragment_to_registerAlzheimerFragment"
+            app:destination="@id/registerAlzheimerFragment" />
         <action
             android:id="@+id/action_registerBlindFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -89,24 +107,11 @@
         android:label="Forget Password"
         tools:layout="@layout/fragment_forget_pass">
         <action
-            android:id="@+id/action_forgetPassFragment_to_otpVerificationFragment"
-            app:destination="@id/otpVerificationFragment" />
-        <action
             android:id="@+id/action_forgetPassFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/otpVerificationFragment"
-        android:name="com.yousef.mysight00.ui.OtpVerificationFragment"
-        android:label="OTP Verification"
-        tools:layout="@layout/fragment_otpverification">
         <action
-            android:id="@+id/action_otpVerificationFragment_to_newPasswordFragment"
+            android:id="@+id/action_forgetPassFragment_to_newPasswordFragment"
             app:destination="@id/newPasswordFragment" />
-        <action
-            android:id="@+id/action_otpVerificationFragment_to_forgetPassFragment"
-            app:destination="@id/forgetPassFragment" />
     </fragment>
 
     <fragment
@@ -118,8 +123,8 @@
             android:id="@+id/action_newPasswordFragment_to_successChangePassFragment"
             app:destination="@id/successChangePassFragment" />
         <action
-            android:id="@+id/action_newPasswordFragment_to_otpVerificationFragment"
-            app:destination="@id/otpVerificationFragment" />
+            android:id="@+id/action_newPasswordFragment_to_forgetPassFragment"
+            app:destination="@id/forgetPassFragment" />
     </fragment>
 
     <fragment
@@ -138,6 +143,27 @@
         android:name="com.yousef.mysight00.ui.HomeCompanionFragment"
         android:label="Home Companion"
         tools:layout="@layout/fragment_home_companion">
+        <action
+            android:id="@+id/action_homeCompanionFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_homeCompanionFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeCompanionFragment_to_gpsCompanionFragment"
+            app:destination="@id/gpsCompanionFragment" />
+        <action
+            android:id="@+id/action_homeCompanionFragment_to_audioCallFragment"
+            app:destination="@id/audioCallFragment" />
+        <action
+            android:id="@+id/action_homeCompanionFragment_to_videoCallFragment"
+            app:destination="@id/videoCallFragment" />
+        <action
+            android:id="@+id/action_homeCompanionFragment_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+        <action
+            android:id="@+id/action_homeCompanionFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
     </fragment>
 
     <fragment
@@ -145,6 +171,30 @@
         android:name="com.yousef.mysight00.ui.HomeAlzheimerFragment"
         android:label="Home Alzheimer"
         tools:layout="@layout/fragment_home_alzheimer">
+        <action
+            android:id="@+id/action_homeAlzheimerFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_homeAlzheimerFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeAlzheimerFragment_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+        <action
+            android:id="@+id/action_homeAlzheimerFragment_to_videoCallFragment"
+            app:destination="@id/videoCallFragment" />
+        <action
+            android:id="@+id/action_homeAlzheimerFragment_to_audioCallFragment"
+            app:destination="@id/audioCallFragment" />
+        <action
+            android:id="@+id/action_homeAlzheimerFragment_to_gpsAlzheimerFragmentUnknown"
+            app:destination="@id/gpsAlzheimerFragmentUnknown" />
+        <action
+            android:id="@+id/action_homeAlzheimerFragment_to_gpsAlzheimerFragmentSafe"
+            app:destination="@id/gpsAlzheimerFragmentSafe" />
+        <action
+            android:id="@+id/action_homeAlzheimerFragment_to_gpsAlzheimerFragmentUnsafe"
+            app:destination="@id/gpsAlzheimerFragmentUnsafe" />
     </fragment>
 
     <fragment
@@ -152,5 +202,206 @@
         android:name="com.yousef.mysight00.ui.HomeBlindFragment"
         android:label="Home Blind"
         tools:layout="@layout/fragment_home_blind">
+        <action
+            android:id="@+id/action_homeBlindFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeBlindFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_homeBlindFragment_to_audioCallFragment"
+            app:destination="@id/audioCallFragment" />
+        <action
+            android:id="@+id/action_homeBlindFragment_to_videoCallFragment"
+            app:destination="@id/videoCallFragment" />
+        <action
+            android:id="@+id/action_homeBlindFragment_to_gpsBlindFragment"
+            app:destination="@id/gpsBlindFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/gpsAlzheimerFragmentSafe"
+        android:name="com.yousef.mysight00.ui.GpsAlzheimerFragmentSafe"
+        android:label="GpsAlzheimerFragmentSafe"
+        tools:layout="@layout/fragment_gps_alzheimer_safe">
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentSafe_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentSafe_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentSafe_to_homeAlzheimerFragment"
+            app:destination="@id/homeAlzheimerFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentSafe_to_audioCallFragment"
+            app:destination="@id/audioCallFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentSafe_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gpsAlzheimerFragmentUnknown"
+        android:name="com.yousef.mysight00.ui.GpsAlzheimerFragmentUnknown"
+        android:label="GpsAlzheimerFragmentUnknown"
+        tools:layout="@layout/fragment_gps_alzheimer_unknown">
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentUnknown_to_homeAlzheimerFragment"
+            app:destination="@id/homeAlzheimerFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentUnknown_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentUnknown_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentUnknown_to_audioCallFragment"
+            app:destination="@id/audioCallFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentUnknown_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gpsAlzheimerFragmentUnsafe"
+        android:name="com.yousef.mysight00.ui.GpsAlzheimerFragmentUnsafe"
+        android:label="GpsAlzheimerFragmentUnsafe"
+        tools:layout="@layout/fragment_gps_alzheimer_unsafe">
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentUnsafe_to_homeAlzheimerFragment"
+            app:destination="@id/homeAlzheimerFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentUnsafe_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentUnsafe_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentUnsafe_to_audioCallFragment"
+            app:destination="@id/audioCallFragment" />
+        <action
+            android:id="@+id/action_gpsAlzheimerFragmentUnsafe_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/unSaveAreaPopFragment2"
+        android:name="com.yousef.mysight00.ui.UnSaveAreaPopFragment"
+        android:label="UnSaveAreaPopFragment"
+        tools:layout="@layout/fragment_un_save_area_pop">
+        <action
+            android:id="@+id/action_unSaveAreaPopFragment2_to_gpsAlzheimerFragmentUnknown"
+            app:destination="@id/gpsAlzheimerFragmentUnknown" />
+        <action
+            android:id="@+id/action_unSaveAreaPopFragment2_to_gpsBlindFragment"
+            app:destination="@id/gpsBlindFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gpsBlindFragment"
+        android:name="com.yousef.mysight00.ui.GpsBlindFragment"
+        android:label="GpsBlindFragment"
+        tools:layout="@layout/fragment_gps_blind">
+        <action
+            android:id="@+id/action_gpsBlindFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_gpsBlindFragment_to_homeBlindFragment"
+            app:destination="@id/homeBlindFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gpsCompanionFragment"
+        android:name="com.yousef.mysight00.ui.GpsCompanionFragment"
+        android:label="GpsCompanionFragment"
+        tools:layout="@layout/fragment_gps_companion">
+        <action
+            android:id="@+id/action_gpsCompanionFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_gpsCompanionFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_gpsCompanionFragment_to_unSaveAreaPopFragment2"
+            app:destination="@id/unSaveAreaPopFragment2" />
+        <action
+            android:id="@+id/action_gpsCompanionFragment_to_audioCallFragment"
+            app:destination="@id/audioCallFragment" />
+        <action
+            android:id="@+id/action_gpsCompanionFragment_to_homeCompanionFragment"
+            app:destination="@id/homeCompanionFragment" />
+        <action
+            android:id="@+id/action_gpsCompanionFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.yousef.mysight00.ui.TasksFragment"
+        android:label="fragment_tasks"
+        tools:layout="@layout/fragment_tasks" >
+        <action
+            android:id="@+id/action_tasksFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_tasksFragment_to_createTaskFragment"
+            app:destination="@id/createTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.yousef.mysight00.ui.NotificationFragment"
+        android:label="NotificationFragment"
+        tools:layout="@layout/fragment_notification">
+        <action
+            android:id="@+id/action_notificationFragment_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createTaskFragment"
+        android:name="com.yousef.mysight00.ui.CreateTaskFragment"
+        android:label="CreateTaskFragment"
+        tools:layout="@layout/fragment_create_task">
+        <action
+            android:id="@+id/action_createTaskFragment_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/audioCallFragment"
+        android:name="com.yousef.mysight00.ui.AudioCallFragment"
+        android:label="AudioCallFragment"
+        tools:layout="@layout/fragment_audio_call"/>
+    <fragment
+        android:id="@+id/videoCallFragment"
+        android:name="com.yousef.mysight00.ui.VideoCallFragment"
+        android:label="VideoCallFragment"
+        tools:layout="@layout/fragment_video_call"/>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.yousef.mysight00.ui.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_historyFragment_to_homeCompanionFragment"
+            app:destination="@id/homeCompanionFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_audioCallFragment"
+            app:destination="@id/audioCallFragment" />
+        <action
+            android:id="@+id/action_historyFragment_to_gpsCompanionFragment"
+            app:destination="@id/gpsCompanionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.yousef.mysight00.ui.ProfileCompanionFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile_companion" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.yousef.mysight00.ui.EditProfileFragment"
+        android:label="EditProfileFragment"
+        tools:layout="@layout/fragment_edit_profile">
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+
 </navigation>

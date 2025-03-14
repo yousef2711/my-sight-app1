@@ -31,11 +31,7 @@ class NewPasswordFragment : Fragment() {
         val confirmPasswordField = view.findViewById<EditText>(R.id.password2_newpass)
         val showPasswordCheckbox = view.findViewById<CheckBox>(R.id.showPasswordCheckbox_newpass)
         val verifyButton = view.findViewById<MaterialButton>(R.id.btnVerify_newpass)
-        val backButton = view.findViewById<ImageView>(R.id.backButton_newpass)
 
-        backButton.setOnClickListener {
-            findNavController().navigate(R.id.action_newPasswordFragment_to_otpVerificationFragment)
-        }
 
         showPasswordCheckbox.setOnCheckedChangeListener { _, isChecked ->
             val transformationMethod = if (isChecked) {

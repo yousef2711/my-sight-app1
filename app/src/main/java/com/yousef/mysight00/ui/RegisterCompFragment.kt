@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.yousef.mysight00.R
 import com.yousef.mysight00.databinding.FragmentRegisterCompBinding
 
 class RegisterCompFragment : Fragment() {
@@ -27,6 +29,7 @@ class RegisterCompFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupValidation()
+        setupNavigation()
     }
 
     private fun setupValidation() {
@@ -62,6 +65,33 @@ class RegisterCompFragment : Fragment() {
         val isFormValid = isNameValid && isEmailValid && isPasswordValid && isAgeValid && isPhoneValid
 
         binding.btnRegisComp.isEnabled = isFormValid
+    }
+
+    private fun setupNavigation() {
+        // زر "Blind" -> ينتقل إلى صفحة تسجيل المكفوفين
+        binding.btnblindRegisComp.setOnClickListener {
+            findNavController().navigate(R.id.action_registerCompFragment_to_registerBlindFragment)
+        }
+
+        // زر "Alzheimer" -> ينتقل إلى صفحة تسجيل مرضى الزهايمر
+        binding.btnalzheimerRegisComp.setOnClickListener {
+            findNavController().navigate(R.id.action_registerCompFragment_to_registerAlzheimerFragment)
+        }
+
+        // زر "Register" -> ينتقل إلى صفحة بيانات المريض
+        binding.btnRegisComp.setOnClickListener {
+            findNavController().navigate(R.id.action_registerCompFragment_to_formCompFragment3)
+        }
+
+        binding.btnLoginRegisComp.setOnClickListener {
+            findNavController().navigate(R.id.action_registerCompFragment_to_loginFragment)
+        }
+        binding.arrowBackRegisComp.setOnClickListener {
+            findNavController().navigate(R.id.action_registerCompFragment_to_loginFragment)
+        }
+        binding.logTextRegisComp.setOnClickListener {
+            findNavController().navigate(R.id.action_registerCompFragment_to_loginFragment)
+        }
     }
 
     override fun onDestroyView() {

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.yousef.mysight00.R
 import com.yousef.mysight00.databinding.FragmentAudioCallBinding
 
 class AudioCallFragment : Fragment() {

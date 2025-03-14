@@ -1,20 +1,26 @@
 package com.yousef.mysight00.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.yousef.mysight00.R
 import com.yousef.mysight00.ui.adapter.ProfileAdapter
 import com.yousef.mysight00.ui.model.ProfileItem
 
-class ProfileFragment : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_profile)
+class ProfileCompanionFragment : Fragment() {
 
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_profile_companion, container, false)
+
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         val items = listOf(
             ProfileItem(R.drawable.ic_favorite, "Favourites"),
@@ -28,5 +34,7 @@ class ProfileFragment : AppCompatActivity() {
 
         val adapter = ProfileAdapter(items)
         recyclerView.adapter = adapter
+
+        return view
     }
 }
