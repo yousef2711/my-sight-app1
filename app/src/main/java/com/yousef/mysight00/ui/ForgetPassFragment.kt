@@ -26,9 +26,12 @@ class ForgetPassFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.txtCancelForget.setOnClickListener {
-            findNavController().navigate(R.id.action_forgetPassFragment_to_loginFragment)
+            findNavController().navigateUp()
         }
 
+        binding.btnDoneForget.setOnClickListener {
+            findNavController().navigate(R.id.action_forgetPassFragment_to_newPasswordFragment)
+        }
     }
 
     override fun onDestroyView() {

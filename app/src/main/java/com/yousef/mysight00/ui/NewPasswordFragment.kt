@@ -1,11 +1,14 @@
 package com.yousef.mysight00.ui
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
@@ -31,7 +34,7 @@ class NewPasswordFragment : Fragment() {
         val confirmPasswordField = view.findViewById<EditText>(R.id.password2_newpass)
         val showPasswordCheckbox = view.findViewById<CheckBox>(R.id.showPasswordCheckbox_newpass)
         val verifyButton = view.findViewById<MaterialButton>(R.id.btnVerify_newpass)
-
+        val successPopup = view.findViewById<ImageView>(R.id.successPopup)
 
         showPasswordCheckbox.setOnCheckedChangeListener { _, isChecked ->
             val transformationMethod = if (isChecked) {
@@ -62,7 +65,14 @@ class NewPasswordFragment : Fragment() {
                 }
                 else -> {
                     Toast.makeText(requireContext(), "Password changed successfully!", Toast.LENGTH_SHORT).show()
-                    findNavController().navigate(R.id.action_newPasswordFragment_to_successChangePassFragment)
+
+                    successPopup.visibility = View.VISIBLE
+                    val animation = AnimationUtils.loadAnimation(requireContext(), R.anim.success_popup_animation)
+                    successPopup.startAnimation(animation)
+
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        findNavController().navigate(R.id.action_newPasswordFragment_to_loginFragment)
+                    }, 2500)
                 }
             }
         }

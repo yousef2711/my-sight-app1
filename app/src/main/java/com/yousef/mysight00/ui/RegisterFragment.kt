@@ -1,5 +1,6 @@
 package com.yousef.mysight00.ui
 
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,18 +11,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.yousef.mysight00.R
-import com.yousef.mysight00.databinding.FragmentRegisterCompBinding
+import com.yousef.mysight00.databinding.FragmentRegisterBinding
 
-class RegisterCompFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
-    private var _binding: FragmentRegisterCompBinding? = null
+    private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentRegisterCompBinding.inflate(inflater, container, false)
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,6 +31,7 @@ class RegisterCompFragment : Fragment() {
 
         setupValidation()
         setupNavigation()
+        selectCompanion() // ✅ تحديد زر "المرافق" تلقائيًا عند فتح الشاشة
     }
 
     private fun setupValidation() {
@@ -68,19 +70,27 @@ class RegisterCompFragment : Fragment() {
     }
 
     private fun setupNavigation() {
-        // زر "Blind" -> ينتقل إلى صفحة تسجيل المكفوفين
         binding.btnblindRegisComp.setOnClickListener {
-            findNavController().navigate(R.id.action_registerCompFragment_to_registerBlindFragment)
+            selectBlind()
         }
 
-        // زر "Alzheimer" -> ينتقل إلى صفحة تسجيل مرضى الزهايمر
         binding.btnalzheimerRegisComp.setOnClickListener {
-            findNavController().navigate(R.id.action_registerCompFragment_to_registerAlzheimerFragment)
+            selectAlzheimer()
         }
 
-        // زر "Register" -> ينتقل إلى صفحة بيانات المريض
+        binding.btncompanionRegisComp.setOnClickListener {
+            selectCompanion()
+        }
+
         binding.btnRegisComp.setOnClickListener {
-            findNavController().navigate(R.id.action_registerCompFragment_to_formCompFragment3)
+
+            val isCompanionSelected = binding.btncompanionRegisComp.backgroundTintList?.defaultColor == Color.parseColor("#007AFF")
+
+            if (isCompanionSelected) {
+                findNavController().navigate(R.id.action_registerCompFragment_to_formCompFragment)
+            } else {
+                findNavController().navigate(R.id.action_registerCompFragment_to_loginFragment)
+            }
         }
 
         binding.btnLoginRegisComp.setOnClickListener {
@@ -92,6 +102,35 @@ class RegisterCompFragment : Fragment() {
         binding.logTextRegisComp.setOnClickListener {
             findNavController().navigate(R.id.action_registerCompFragment_to_loginFragment)
         }
+    }
+
+    private fun selectBlind() {
+        resetButtons()
+        binding.btnblindRegisComp.setBackgroundColor(Color.parseColor("#007AFF"))
+        binding.btnblindRegisComp.setTextColor(Color.WHITE)
+    }
+
+    private fun selectAlzheimer() {
+        resetButtons()
+        binding.btnalzheimerRegisComp.setBackgroundColor(Color.parseColor("#007AFF"))
+        binding.btnalzheimerRegisComp.setTextColor(Color.WHITE)
+    }
+
+    private fun selectCompanion() {
+        resetButtons()
+        binding.btncompanionRegisComp.setBackgroundColor(Color.parseColor("#007AFF"))
+        binding.btncompanionRegisComp.setTextColor(Color.WHITE)
+    }
+
+    private fun resetButtons() {
+        binding.btnblindRegisComp.setBackgroundColor(Color.WHITE)
+        binding.btnblindRegisComp.setTextColor(Color.BLACK)
+
+        binding.btnalzheimerRegisComp.setBackgroundColor(Color.WHITE)
+        binding.btnalzheimerRegisComp.setTextColor(Color.BLACK)
+
+        binding.btncompanionRegisComp.setBackgroundColor(Color.WHITE)
+        binding.btncompanionRegisComp.setTextColor(Color.BLACK)
     }
 
     override fun onDestroyView() {

@@ -83,7 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:text="Please enter your registered number"
+                    android:text="Please enter your registered email"
                     android:textColor="#3d3d3d"
                     android:textSize="16sp" />
 
@@ -94,7 +94,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="50dp"
                     android:background="@drawable/btn_text_rounded"
-                    android:hint="phone number"
+                    android:hint="Email"
                     android:padding="12dp"
                     android:textSize="16sp" />
 

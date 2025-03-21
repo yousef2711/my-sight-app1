@@ -112,8 +112,5 @@
                 app:cornerRadius="10dp" />
         </LinearLayout>
 
-
     </androidx.cardview.widget.CardView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

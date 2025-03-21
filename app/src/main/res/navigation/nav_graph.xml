@@ -25,7 +25,7 @@
             app:destination="@id/forgetPassFragment" />
         <action
             android:id="@+id/action_loginFragment_to_registerCompFragment"
-            app:destination="@id/registerCompFragment" />
+            app:destination="@id/registerFragment" />
         <action
             android:id="@+id/action_loginFragment_to_homeCompanionFragment"
             app:destination="@id/homeCompanionFragment" />
@@ -38,66 +38,25 @@
     </fragment>
 
     <fragment
-        android:id="@+id/registerCompFragment"
-        android:name="com.yousef.mysight00.ui.RegisterCompFragment"
+        android:id="@+id/registerFragment"
+        android:name="com.yousef.mysight00.ui.RegisterFragment"
         android:label="Register Companion"
-        tools:layout="@layout/fragment_register_comp">
+        tools:layout="@layout/fragment_register">
         <action
-            android:id="@+id/action_registerCompFragment_to_registerAlzheimerFragment"
-            app:destination="@id/registerAlzheimerFragment" />
-        <action
-            android:id="@+id/action_registerCompFragment_to_registerBlindFragment"
-            app:destination="@id/registerBlindFragment" />
-        <action
-            android:id="@+id/action_registerCompFragment_to_formCompFragment3"
-            app:destination="@id/formCompFragment3" />
+            android:id="@+id/action_registerCompFragment_to_formCompFragment"
+            app:destination="@id/formCompFragment" />
         <action
             android:id="@+id/action_registerCompFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/formCompFragment3"
+        android:id="@+id/formCompFragment"
         android:name="com.yousef.mysight00.ui.FormCompFragment"
         android:label="FormCompFragment"
         tools:layout="@layout/fragment_form_comp">
         <action
-            android:id="@+id/action_formCompFragment3_to_registerCompFragment"
-            app:destination="@id/registerCompFragment" />
-        <action
             android:id="@+id/action_formCompFragment3_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/registerAlzheimerFragment"
-        android:name="com.yousef.mysight00.ui.RegisterAlzheimerFragment"
-        android:label="Register Alzheimer"
-        tools:layout="@layout/fragment_register_alzheimer">
-        <action
-            android:id="@+id/action_registerAlzheimerFragment_to_registerCompFragment"
-            app:destination="@id/registerCompFragment" />
-        <action
-            android:id="@+id/action_registerAlzheimerFragment_to_registerBlindFragment"
-            app:destination="@id/registerBlindFragment" />
-        <action
-            android:id="@+id/action_registerAlzheimerFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/registerBlindFragment"
-        android:name="com.yousef.mysight00.ui.RegisterBlindFragment"
-        android:label="Register Blind"
-        tools:layout="@layout/fragment_register_blind">
-        <action
-            android:id="@+id/action_registerBlindFragment_to_registerCompFragment"
-            app:destination="@id/registerCompFragment" />
-        <action
-            android:id="@+id/action_registerBlindFragment_to_registerAlzheimerFragment"
-            app:destination="@id/registerAlzheimerFragment" />
-        <action
-            android:id="@+id/action_registerBlindFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 
@@ -120,23 +79,12 @@
         android:label="New Password"
         tools:layout="@layout/fragment_new_password">
         <action
-            android:id="@+id/action_newPasswordFragment_to_successChangePassFragment"
-            app:destination="@id/successChangePassFragment" />
-        <action
             android:id="@+id/action_newPasswordFragment_to_forgetPassFragment"
             app:destination="@id/forgetPassFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/successChangePassFragment"
-        android:name="com.yousef.mysight00.ui.SuccessChangePassFragment"
-        android:label="Success Change Password"
-        tools:layout="@layout/fragment_succes_change_pass">
         <action
-            android:id="@+id/action_successChangePassFragment_to_loginFragment"
+            android:id="@+id/action_newPasswordFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
-
 
     <fragment
         android:id="@+id/homeCompanionFragment"
