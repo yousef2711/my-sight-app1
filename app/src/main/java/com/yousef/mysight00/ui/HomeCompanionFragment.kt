@@ -23,6 +23,23 @@ class HomeCompanionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.bottomNavigationView5.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_calls -> {
+                    navigateTo(R.id.action_homeCompanionFragment_to_audioCallFragment)
+                    true
+                }
+                R.id.nav_gps -> {
+                    navigateTo(R.id.action_homeCompanionFragment_to_gpsCompanionFragment)
+                    true
+                }
+                R.id.nav_history -> {
+                    navigateTo(R.id.action_homeCompanionFragment_to_historyFragment)
+                    true
+                }
+                else -> false
+            }
+        }
 
         val navigationMap = mapOf(
             binding.icNotificationComp to R.id.action_homeCompanionFragment_to_notificationFragment,
@@ -35,16 +52,6 @@ class HomeCompanionFragment : Fragment() {
 
         navigationMap.forEach { (view, destination) ->
             view.setOnClickListener { navigateTo(destination) }
-        }
-
-        binding.bottomNavigationView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.historyFragment -> {
-                    navigateTo(R.id.action_homeCompanionFragment_to_historyFragment)
-                    true
-                }
-                else -> false
-            }
         }
     }
 

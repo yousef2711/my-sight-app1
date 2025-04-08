@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.GpsCompanionFragment">
+    tools:context=".ui.GpsAlzheimerFragment">
 
     <ImageView
         android:id="@+id/bg_home_companion"
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:gravity="end"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_section"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_home_companion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -93,30 +93,17 @@
             android:src="@drawable/ic_unsafe" />
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bottom_section"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/securityPopup"
+        android:layout_width="361dp"
+        android:layout_height="502dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:scaleType="fitCenter"
+        android:src="@drawable/image_popup_security"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="411dp"
-            android:layout_height="98dp"
-            android:background="@color/dark"
-            app:itemIconSize="48dp"
-            app:itemIconTint="@color/white"
-            app:itemPaddingTop="12dp"
-            app:itemTextColor="@color/white"
-            app:labelVisibilityMode="labeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu5" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

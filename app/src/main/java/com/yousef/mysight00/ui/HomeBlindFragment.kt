@@ -29,16 +29,23 @@ class HomeBlindFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            logoProfileHomeComp.setOnClickListener { navigateTo(R.id.action_homeBlindFragment_to_profileFragment) }
+            // OnClickListeners for each element
+            logoProfileHomeBlind.setOnClickListener { navigateTo(R.id.action_homeBlindFragment_to_profileFragment) }
             icNotificationBlind.setOnClickListener { navigateTo(R.id.action_homeBlindFragment_to_notificationFragment) }
             icCameraBlind.setOnClickListener { openCamera() }
             icCallBlind.setOnClickListener { navigateTo(R.id.action_homeBlindFragment_to_audioCallFragment) }
             icVideoBlind.setOnClickListener { navigateTo(R.id.action_homeBlindFragment_to_videoCallFragment) }
-            bottomNavigationView.setOnItemSelectedListener { item ->
-                if (item.itemId == R.id.nav_gps) {
-                    navigateTo(R.id.action_homeBlindFragment_to_gpsBlindFragment)
-                    true
-                } else false
+
+            // BottomNavigationView interaction
+            bottomNavigationViewBlind.setOnItemSelectedListener { item ->
+                when (item.itemId) {
+
+                    R.id.nav_gps -> {
+                        navigateTo(R.id.action_homeBlindFragment_to_gpsBlindFragment)
+                        true
+                    }
+                    else -> false
+                }
             }
         }
     }

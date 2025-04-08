@@ -22,11 +22,11 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (isAdded) {  // تأكد أن الـ Fragment لا يزال مرتبطًا بـ Activity
+            if (isAdded) {
                 try {
                     findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
                 } catch (e: Exception) {
-                    e.printStackTrace() // طباعة الخطأ في Logcat إذا حدث
+                    e.printStackTrace()
                 }
             }
         }, 3000)

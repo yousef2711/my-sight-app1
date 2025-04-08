@@ -190,7 +190,6 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/white"
                 android:drawableLeft="@drawable/ic_google"
-                android:drawablePadding="8dp"
                 android:padding="12dp"
                 android:text="Continue with Google"
                 android:textColor="@android:color/black"/>
@@ -201,9 +200,11 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/white"
                 android:drawableLeft="@drawable/ic_facebook"
+                android:drawablePadding="8dp"
                 android:padding="12dp"
                 android:text="Continue with Facebook"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/black"/>
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

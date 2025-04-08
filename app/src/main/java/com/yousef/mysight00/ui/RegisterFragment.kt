@@ -18,6 +18,8 @@ class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
+    private var isCompanionSelected = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,7 +33,7 @@ class RegisterFragment : Fragment() {
 
         setupValidation()
         setupNavigation()
-        selectCompanion() // ✅ تحديد زر "المرافق" تلقائيًا عند فتح الشاشة
+        selectCompanion()
     }
 
     private fun setupValidation() {
@@ -39,7 +41,6 @@ class RegisterFragment : Fragment() {
             override fun afterTextChanged(s: Editable?) {
                 validateFields()
             }
-
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         }
@@ -58,13 +59,15 @@ class RegisterFragment : Fragment() {
         val age = binding.ageRegisComp.text.toString().trim()
         val phone = binding.phNumRegisComp.text.toString().trim()
 
+        val isNotEmpty = name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && age.isNotEmpty() && phone.isNotEmpty()
+
         val isNameValid = name.split(" ").size >= 2
         val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
         val isPasswordValid = password.length >= 6
-        val isAgeValid = age.isNotEmpty()
+        val isAgeValid = age.isNotEmpty() && age.toIntOrNull() != null && age.toInt() > 0
         val isPhoneValid = phone.length == 11 && phone.all { it.isDigit() }
 
-        val isFormValid = isNameValid && isEmailValid && isPasswordValid && isAgeValid && isPhoneValid
+        val isFormValid = isNotEmpty && isNameValid && isEmailValid && isPasswordValid && isAgeValid && isPhoneValid
 
         binding.btnRegisComp.isEnabled = isFormValid
     }
@@ -83,24 +86,21 @@ class RegisterFragment : Fragment() {
         }
 
         binding.btnRegisComp.setOnClickListener {
-
-            val isCompanionSelected = binding.btncompanionRegisComp.backgroundTintList?.defaultColor == Color.parseColor("#007AFF")
-
             if (isCompanionSelected) {
-                findNavController().navigate(R.id.action_registerCompFragment_to_formCompFragment)
+                findNavController().navigate(R.id.action_register_to_form)
             } else {
-                findNavController().navigate(R.id.action_registerCompFragment_to_loginFragment)
+                findNavController().navigate(R.id.action_register_to_login)
             }
         }
 
         binding.btnLoginRegisComp.setOnClickListener {
-            findNavController().navigate(R.id.action_registerCompFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_register_to_login)
         }
         binding.arrowBackRegisComp.setOnClickListener {
-            findNavController().navigate(R.id.action_registerCompFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_register_to_login)
         }
         binding.logTextRegisComp.setOnClickListener {
-            findNavController().navigate(R.id.action_registerCompFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_register_to_login)
         }
     }
 
@@ -108,18 +108,21 @@ class RegisterFragment : Fragment() {
         resetButtons()
         binding.btnblindRegisComp.setBackgroundColor(Color.parseColor("#007AFF"))
         binding.btnblindRegisComp.setTextColor(Color.WHITE)
+        isCompanionSelected = false
     }
 
     private fun selectAlzheimer() {
         resetButtons()
         binding.btnalzheimerRegisComp.setBackgroundColor(Color.parseColor("#007AFF"))
         binding.btnalzheimerRegisComp.setTextColor(Color.WHITE)
+        isCompanionSelected = false
     }
 
     private fun selectCompanion() {
         resetButtons()
         binding.btncompanionRegisComp.setBackgroundColor(Color.parseColor("#007AFF"))
         binding.btncompanionRegisComp.setTextColor(Color.WHITE)
+        isCompanionSelected = true
     }
 
     private fun resetButtons() {

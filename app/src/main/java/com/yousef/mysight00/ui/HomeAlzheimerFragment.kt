@@ -19,7 +19,12 @@ class HomeAlzheimerFragment : Fragment(R.layout.fragment_home_alzheimer) {
         binding.apply {
             bottomNavigationView.setOnItemSelectedListener { item ->
                 when (item.itemId) {
-                    R.id.nav_gps -> navigateTo(R.id.action_homeAlzheimerFragment_to_gpsAlzheimerFragmentUnknown)
+                    R.id.nav_gps -> {navigateTo(R.id.action_home_to_gps)
+                        true }
+                    R.id.nav_calls -> { navigateTo(R.id.action_home_to_audio_call)
+                    true }
+                    R.id.nav_task -> { navigateTo(R.id.action_homeAlzheimerFragment_to_tasksFragment)
+                    true }
                     else -> false
                 }
             }

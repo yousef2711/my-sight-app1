@@ -3,8 +3,7 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
-        android:title="Home"
-        android:itemBackground="@drawable/bg_rounded_blue_oval"/>
+        android:title="Home" />
 
     <item
         android:id="@+id/nav_gps"

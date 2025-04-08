@@ -30,7 +30,7 @@ class ForgetPassFragment : Fragment() {
         }
 
         binding.btnDoneForget.setOnClickListener {
-            findNavController().navigate(R.id.action_forgetPassFragment_to_newPasswordFragment)
+            findNavController().navigate(R.id.action_forget_password_to_new_password)
         }
     }
 

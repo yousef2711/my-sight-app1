@@ -14,7 +14,7 @@ class VideoCallFragment : Fragment() {
     private var _binding: FragmentVideoCallBinding? = null
     private val binding get() = _binding!!
 
-    private var isChanged = false  // متغير لتتبع حالة الزر
+    private var isChanged = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +22,6 @@ class VideoCallFragment : Fragment() {
     ): View {
         _binding = FragmentVideoCallBinding.inflate(inflater, container, false)
 
-        // زر تبديل الكاميرا
         binding.btnChange.setOnClickListener {
             toggleButtonStyle()
         }
@@ -31,14 +30,12 @@ class VideoCallFragment : Fragment() {
     }
 
     private fun toggleButtonStyle() {
-        isChanged = !isChanged  // عكس الحالة عند الضغط
+        isChanged = !isChanged
 
         if (isChanged) {
-            // تغيير اللون إلى الأسود والخلفية إلى الأبيض
             binding.btnChange.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
             binding.btnChange.setIconTintResource(R.color.black)
         } else {
-            // إعادة اللون إلى الوضع الافتراضي
             binding.btnChange.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.dark))
             binding.btnChange.setIconTintResource(R.color.white)
         }

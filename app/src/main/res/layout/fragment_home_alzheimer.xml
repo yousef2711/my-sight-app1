@@ -71,7 +71,7 @@
                 android:id="@+id/logo_profile_home_comp"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/profile_white" />
+                android:src="@drawable/baseline_person_24" />
         </LinearLayout>
 
     </LinearLayout>
@@ -200,30 +200,14 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bottom_section"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:itemIconSize="36dp"
+        android:paddingVertical="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" >
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="94dp"
-            android:background="@color/dark"
-            app:itemIconSize="48dp"
-            app:itemIconTint="@color/white"
-            app:itemTextColor="@color/white"
-            app:labelVisibilityMode="labeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu2" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

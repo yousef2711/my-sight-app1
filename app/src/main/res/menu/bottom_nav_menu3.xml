@@ -3,13 +3,12 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
-        android:title="Home"
-        android:itemBackground="@drawable/bg_rounded_blue_oval"/>
+        android:title="Home" />
 
     <item
         android:id="@+id/nav_message"
-        android:icon="@drawable/ic_message"
-        android:title="Message"/>
+        android:icon="@drawable/baseline_person_24"
+        android:title="Profile"/>
 
     <item
         android:id="@+id/nav_history"

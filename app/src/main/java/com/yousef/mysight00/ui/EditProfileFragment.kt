@@ -23,9 +23,7 @@ class EditProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // حدث الضغط على أيقونة الكاميرا
         binding.btnEditProfile.setOnClickListener {
-            // هنا يمكنك فتح الكاميرا أو معرض الصور
         }
     }
 

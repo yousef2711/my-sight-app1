@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ProfileCompanionFragment">
+    tools:context=".ui.ProfileBlindFragment">
 
     <ImageView
         android:id="@+id/bg_profile"
@@ -330,7 +330,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu5" />
+            app:menu="@menu/bottom_nav_menu_companion" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

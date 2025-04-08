@@ -5,19 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.yousef.mysight00.R
+import com.yousef.mysight00.databinding.FragmentTasksBinding
 import com.yousef.mysight00.ui.adapter.DaysAdapter
 import com.yousef.mysight00.ui.adapter.TaskAdapter
 import com.yousef.mysight00.ui.model.TaskModel
-
 import java.text.SimpleDateFormat
 import java.util.*
 
 class TasksFragment : Fragment() {
 
+    private var _binding: FragmentTasksBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var taskAdapter: TaskAdapter
+
     private val taskList = mutableListOf(
         TaskModel("Design Changes", "2 Days ago", false),
         TaskModel("Fix Bugs", "3 Days ago", true),
@@ -27,26 +31,42 @@ class TasksFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_tasks, container, false)
+    ): View {
+        _binding = FragmentTasksBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        // 🔹 إعداد RecyclerView للأيام (أفقي)
-        val rvDays = view.findViewById<RecyclerView>(R.id.recyclerViewDays)
-        rvDays.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val daysList = generateDays()
-        val daysAdapter = DaysAdapter(daysList) { day ->
-            println("🖱️ تم الضغط على اليوم: $day")
+        setupDaysRecyclerView()
+        setupTasksRecyclerView()
+
+        // التنقل إلى Notifications
+        binding.btnNotifications.setOnClickListener {
+            findNavController().navigate(R.id.action_tasksFragment_to_notificationFragment)
         }
-        rvDays.adapter = daysAdapter
 
-        // 🔹 إعداد RecyclerView للمهام (رأسي)
-        val rvTasks = view.findViewById<RecyclerView>(R.id.recyclerViewTasks)
-        rvTasks.layoutManager = LinearLayoutManager(requireContext())
+        // التنقل لإنشاء مهمة جديدة
+        binding.btnAddTask.setOnClickListener {
+            findNavController().navigate(R.id.action_tasksFragment_to_createTaskFragment)
+        }
+    }
+
+    private fun setupDaysRecyclerView() {
+        binding.recyclerViewDays.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recyclerViewDays.adapter = DaysAdapter(generateDays()) { day ->
+            println("Day clicked: $day")
+        }
+    }
+
+    private fun setupTasksRecyclerView() {
+        binding.recyclerViewTasks.layoutManager = LinearLayoutManager(requireContext())
 
         taskAdapter = TaskAdapter(taskList, object : TaskAdapter.TaskActionListener {
             override fun onSendTask(task: TaskModel) {
-                println("📤 إرسال المهمة: ${task.name}")
+                println("Sending task: ${task.name}")
             }
 
             override fun onDeleteTask(task: TaskModel) {
@@ -55,27 +75,28 @@ class TasksFragment : Fragment() {
             }
 
             override fun onEditTask(task: TaskModel) {
-                println("✏️ تعديل المهمة: ${task.name}")
+                println("Editing task: ${task.name}")
             }
         })
 
-        rvTasks.adapter = taskAdapter
-
-        return view
+        binding.recyclerViewTasks.adapter = taskAdapter
     }
 
-    // 🔹 توليد الأيام القادمة
     private fun generateDays(): List<String> {
         val calendar = Calendar.getInstance()
         val days = mutableListOf<String>()
-        val format = SimpleDateFormat("d", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("d", Locale.getDefault())
 
-        for (i in 1..7) {
-            val day = format.format(calendar.time)
-            days.add(day)
+        repeat(7) {
+            days.add(dateFormat.format(calendar.time))
             calendar.add(Calendar.DAY_OF_MONTH, 1)
         }
 
         return days
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

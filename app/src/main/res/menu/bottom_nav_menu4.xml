@@ -2,11 +2,11 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home_companian"
-        android:title="@null"/>
+        android:title="Home"/>
 
     <item
         android:id="@+id/nav_calls"
-        android:title="@null"
+        android:title="Call"
         android:icon="@drawable/ic_call_companian"/>
 
     <item
@@ -16,10 +16,8 @@
         android:itemBackground="@drawable/bg_rounded_blue_oval"/>
 
     <item
-        android:id="@+id/nav_message"
+        android:id="@+id/nav_task"
         android:icon="@drawable/ic_task"
-        android:title="@null"/>
-
-
+        android:title="Task"/>
 
 </menu>

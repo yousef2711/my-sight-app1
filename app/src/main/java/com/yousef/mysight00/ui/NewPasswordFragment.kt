@@ -1,5 +1,6 @@
 package com.yousef.mysight00.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -8,6 +9,7 @@ import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.view.animation.AnimationUtils
 import android.widget.CheckBox
 import android.widget.EditText
@@ -36,6 +38,11 @@ class NewPasswordFragment : Fragment() {
         val verifyButton = view.findViewById<MaterialButton>(R.id.btnVerify_newpass)
         val successPopup = view.findViewById<ImageView>(R.id.successPopup)
 
+        fun hideKeyboard(view: View) {
+            val inputMethodManager = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+
         showPasswordCheckbox.setOnCheckedChangeListener { _, isChecked ->
             val transformationMethod = if (isChecked) {
                 HideReturnsTransformationMethod.getInstance()
@@ -50,6 +57,8 @@ class NewPasswordFragment : Fragment() {
         }
 
         verifyButton.setOnClickListener {
+            hideKeyboard(it)
+
             val password = passwordField.text.toString().trim()
             val confirmPassword = confirmPasswordField.text.toString().trim()
 
