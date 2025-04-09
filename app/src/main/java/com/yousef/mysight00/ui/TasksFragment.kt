@@ -9,9 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yousef.mysight00.R
 import com.yousef.mysight00.databinding.FragmentTasksBinding
-import com.yousef.mysight00.ui.adapter.DaysAdapter
-import com.yousef.mysight00.ui.adapter.TaskAdapter
-import com.yousef.mysight00.ui.model.TaskModel
+import com.yousef.mysight00.adapter.DaysAdapter
+import com.yousef.mysight00.adapter.TaskAdapter
+import com.yousef.mysight00.model.TaskModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -44,12 +44,12 @@ class TasksFragment : Fragment() {
 
         // التنقل إلى Notifications
         binding.btnNotifications.setOnClickListener {
-            findNavController().navigate(R.id.action_tasksFragment_to_notificationFragment)
+            findNavController().navigate(R.id.action_tasks_to_notification)
         }
 
         // التنقل لإنشاء مهمة جديدة
         binding.btnAddTask.setOnClickListener {
-            findNavController().navigate(R.id.action_tasksFragment_to_createTaskFragment)
+            findNavController().navigate(R.id.action_tasks_to_create_task)
         }
     }
 

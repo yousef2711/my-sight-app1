@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.yousef.mysight00.databinding.FragmentHistoryBinding
 
+
 class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null

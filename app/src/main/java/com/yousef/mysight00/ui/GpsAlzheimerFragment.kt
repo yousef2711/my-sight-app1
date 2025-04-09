@@ -4,55 +4,73 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.yousef.mysight00.R
+import com.yousef.mysight00.databinding.FragmentGpsAlzheimerBinding
+
 
 class GpsAlzheimerFragment : Fragment() {
 
-    private lateinit var areaStatusIcon: ImageView
+    private var _binding: FragmentGpsAlzheimerBinding? = null
+    private val binding get() = _binding!!
     private var currentState = State.UNKNOWN
 
-    enum class State {
-        UNKNOWN,
-        SAFE,
-        UNSAFE
+    private enum class State {
+        UNKNOWN, SAFE, UNSAFE
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_gps_alzheimer, container, false)
+        _binding = FragmentGpsAlzheimerBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        areaStatusIcon = view.findViewById(R.id.ic_area_status)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupClickListeners()
+    }
 
-        areaStatusIcon.setImageResource(R.drawable.ic_unknown)
+    private fun setupClickListeners() {
+        binding.apply {
+            icNotificationComp.setOnClickListener {
+                findNavController().navigate(R.id.action_gps_to_notification)
+            }
 
-        areaStatusIcon.setOnClickListener {
-            changeAreaState()
+            logoProfileHomeComp.setOnClickListener {
+                findNavController().navigate(R.id.action_gps_to_profile)
+            }
+
+            icAreaStatus.setOnClickListener {
+                changeAreaState()
+            }
         }
-        return view
     }
 
     private fun changeAreaState() {
-        when (currentState) {
-            State.UNKNOWN -> {
-                areaStatusIcon.setImageResource(R.drawable.ic_safe)
-                currentState = State.SAFE
+        binding.icAreaStatus.setImageResource(
+            when (currentState) {
+                State.UNKNOWN -> {
+                    currentState = State.SAFE
+                    R.drawable.ic_safe
+                }
+                State.SAFE -> {
+                    currentState = State.UNSAFE
+                    R.drawable.ic_unsafe
+                }
+                State.UNSAFE -> {
+                    currentState = State.UNKNOWN
+                    R.drawable.ic_unknown
+                }
             }
-            State.SAFE -> {
-                areaStatusIcon.setImageResource(R.drawable.ic_unsafe)
-                currentState = State.UNSAFE
-            }
-            State.UNSAFE -> {
-                areaStatusIcon.setImageResource(R.drawable.ic_unknown)
-                currentState = State.UNKNOWN
-            }
-        }
+        )
     }
 
-    companion object {
-        fun newInstance() = GpsAlzheimerFragment()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

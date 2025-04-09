@@ -1,4 +1,4 @@
-package com.yousef.mysight00.ui.adapter
+package com.yousef.mysight00.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

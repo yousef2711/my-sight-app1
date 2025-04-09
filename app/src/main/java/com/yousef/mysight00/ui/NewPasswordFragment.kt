@@ -17,8 +17,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.button.MaterialButton
 import com.yousef.mysight00.R
+import com.google.android.material.button.MaterialButton
 
 class NewPasswordFragment : Fragment() {
 
@@ -80,7 +80,7 @@ class NewPasswordFragment : Fragment() {
                     successPopup.startAnimation(animation)
 
                     Handler(Looper.getMainLooper()).postDelayed({
-                        findNavController().navigate(R.id.action_newPasswordFragment_to_loginFragment)
+                        findNavController().navigate(R.id.action_new_password_to_login)
                     }, 2500)
                 }
             }

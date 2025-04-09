@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.yousef.mysight00.R
 import com.yousef.mysight00.databinding.FragmentForgetPassBinding
 
+
 class ForgetPassFragment : Fragment() {
 
     private var _binding: FragmentForgetPassBinding? = null

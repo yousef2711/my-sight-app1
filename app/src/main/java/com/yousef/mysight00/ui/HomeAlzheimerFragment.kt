@@ -23,22 +23,22 @@ class HomeAlzheimerFragment : Fragment(R.layout.fragment_home_alzheimer) {
                         true }
                     R.id.nav_calls -> { navigateTo(R.id.action_home_to_audio_call)
                     true }
-                    R.id.nav_task -> { navigateTo(R.id.action_homeAlzheimerFragment_to_tasksFragment)
+                    R.id.nav_task -> { navigateTo(R.id.action_home_to_tasks)
                     true }
                     else -> false
                 }
             }
 
-            icNotificationComp.setOnClickListener { navigateTo(R.id.action_homeAlzheimerFragment_to_notificationFragment) }
-            logoProfileHomeComp.setOnClickListener { navigateTo(R.id.action_homeAlzheimerFragment_to_profileFragment) }
-            tvSeeAll.setOnClickListener { navigateTo(R.id.action_homeAlzheimerFragment_to_tasksFragment) }
+            icNotificationComp.setOnClickListener { navigateTo(R.id.action_home_to_notification) }
+            logoProfileHomeComp.setOnClickListener { navigateTo(R.id.action_home_to_profile) }
+            tvSeeAll.setOnClickListener { navigateTo(R.id.action_home_to_tasks) }
 
             listOf(imageCard1Alzh, imageCard2Alzh, imageCard3Alzh, imageCard4Alzh).forEach {
-                it.setOnClickListener { navigateTo(R.id.action_homeAlzheimerFragment_to_tasksFragment) }
+                it.setOnClickListener { navigateTo(R.id.action_home_to_tasks) }
             }
 
-            icCallBlind.setOnClickListener { navigateTo(R.id.action_homeAlzheimerFragment_to_audioCallFragment) }
-            icVideoBlind.setOnClickListener { navigateTo(R.id.action_homeAlzheimerFragment_to_videoCallFragment) }
+            icCallBlind.setOnClickListener { navigateTo(R.id.action_home_to_audio_call) }
+            icVideoBlind.setOnClickListener { navigateTo(R.id.action_home_to_video_call) }
         }
     }
 

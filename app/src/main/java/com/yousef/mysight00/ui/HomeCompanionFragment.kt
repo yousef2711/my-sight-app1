@@ -10,12 +10,13 @@ import com.yousef.mysight00.R
 import com.yousef.mysight00.databinding.FragmentHomeCompanionBinding
 
 class HomeCompanionFragment : Fragment() {
-
     private var _binding: FragmentHomeCompanionBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeCompanionBinding.inflate(inflater, container, false)
         return binding.root
@@ -23,40 +24,59 @@ class HomeCompanionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.bottomNavigationView5.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_calls -> {
-                    navigateTo(R.id.action_homeCompanionFragment_to_audioCallFragment)
-                    true
-                }
-                R.id.nav_gps -> {
-                    navigateTo(R.id.action_homeCompanionFragment_to_gpsCompanionFragment)
-                    true
-                }
-                R.id.nav_history -> {
-                    navigateTo(R.id.action_homeCompanionFragment_to_historyFragment)
-                    true
-                }
-                else -> false
-            }
-        }
-
-        val navigationMap = mapOf(
-            binding.icNotificationComp to R.id.action_homeCompanionFragment_to_notificationFragment,
-            binding.logoProfileHomeComp to R.id.action_homeCompanionFragment_to_profileFragment,
-            binding.imageGpsComp to R.id.action_homeCompanionFragment_to_gpsCompanionFragment,
-            binding.tvSeeAll to R.id.action_homeCompanionFragment_to_tasksFragment,
-            binding.icCallBlind to R.id.action_homeCompanionFragment_to_audioCallFragment,
-            binding.icVideoBlind to R.id.action_homeCompanionFragment_to_videoCallFragment
-        )
-
-        navigationMap.forEach { (view, destination) ->
-            view.setOnClickListener { navigateTo(destination) }
-        }
+        setupClickListeners()
     }
 
-    private fun navigateTo(destination: Int) {
-        findNavController().navigate(destination)
+    private fun setupClickListeners() {
+        binding.apply {
+            icNotificationComp.setOnClickListener { 
+                findNavController().navigate(R.id.action_home_to_notification)
+            }
+            
+            logoProfileHomeComp.setOnClickListener { 
+                findNavController().navigate(R.id.action_home_to_profile)
+            }
+            
+            imageGpsComp.setOnClickListener { 
+                findNavController().navigate(R.id.action_home_to_gps)
+            }
+            
+            icCallBlind.setOnClickListener { 
+                findNavController().navigate(R.id.action_home_to_audio_call)
+            }
+            
+            icVideoBlind.setOnClickListener { 
+                findNavController().navigate(R.id.action_home_to_video_call)
+            }
+            
+            tvSeeAll.setOnClickListener { 
+                findNavController().navigate(R.id.action_home_to_tasks)
+            }
+            
+            listOf(imageCard1Comp, imageCard2Comp, imageCard3Comp).forEach {
+                it.setOnClickListener { 
+                    findNavController().navigate(R.id.action_home_to_tasks)
+                }
+            }
+
+            bottomNavigationView5.setOnItemSelectedListener { item ->
+                when (item.itemId) {
+                    R.id.nav_gps -> {
+                        findNavController().navigate(R.id.action_home_to_gps)
+                        true
+                    }
+                    R.id.nav_calls -> {
+                        findNavController().navigate(R.id.action_home_to_audio_call)
+                        true
+                    }
+                    R.id.nav_task -> {
+                        findNavController().navigate(R.id.action_home_to_tasks)
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

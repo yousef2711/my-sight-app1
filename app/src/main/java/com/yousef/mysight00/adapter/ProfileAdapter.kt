@@ -1,4 +1,4 @@
-package com.yousef.mysight00.ui.adapter
+package com.yousef.mysight00.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.yousef.mysight00.R
-import com.yousef.mysight00.ui.model.ProfileItem
+import com.yousef.mysight00.model.ProfileItem
 
 class ProfileAdapter(private val itemList: List<ProfileItem>) :
     RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder>() {

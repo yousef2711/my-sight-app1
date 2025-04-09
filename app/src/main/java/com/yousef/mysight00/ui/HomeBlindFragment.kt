@@ -30,18 +30,17 @@ class HomeBlindFragment : Fragment() {
 
         binding.apply {
             // OnClickListeners for each element
-            logoProfileHomeBlind.setOnClickListener { navigateTo(R.id.action_homeBlindFragment_to_profileFragment) }
-            icNotificationBlind.setOnClickListener { navigateTo(R.id.action_homeBlindFragment_to_notificationFragment) }
+            logoProfileHomeBlind.setOnClickListener { navigateTo(R.id.action_home_to_profile) }
+            icNotificationBlind.setOnClickListener { navigateTo(R.id.action_home_to_notification) }
             icCameraBlind.setOnClickListener { openCamera() }
-            icCallBlind.setOnClickListener { navigateTo(R.id.action_homeBlindFragment_to_audioCallFragment) }
-            icVideoBlind.setOnClickListener { navigateTo(R.id.action_homeBlindFragment_to_videoCallFragment) }
+            icCallBlind.setOnClickListener { navigateTo(R.id.action_home_to_audio_call) }
+            icVideoBlind.setOnClickListener { navigateTo(R.id.action_home_to_video_call) }
 
             // BottomNavigationView interaction
             bottomNavigationViewBlind.setOnItemSelectedListener { item ->
                 when (item.itemId) {
-
                     R.id.nav_gps -> {
-                        navigateTo(R.id.action_homeBlindFragment_to_gpsBlindFragment)
+                        navigateTo(R.id.action_home_to_gps)
                         true
                     }
                     else -> false

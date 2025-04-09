@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.yousef.mysight00.R
-import com.yousef.mysight00.ui.adapter.ProfileAdapter
-import com.yousef.mysight00.ui.model.ProfileItem
+import com.yousef.mysight00.adapter.ProfileAdapter
+import com.yousef.mysight00.model.ProfileItem
 
 class ProfileBlindFragment : Fragment() {
 

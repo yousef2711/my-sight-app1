@@ -1,18 +1,14 @@
 package com.yousef.mysight00.ui
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.yousef.mysight00.R
 import com.yousef.mysight00.databinding.FragmentLoginBinding
+import com.yousef.mysight00.utils.showToast
 
 class LoginFragment : Fragment() {
 
@@ -35,11 +31,11 @@ class LoginFragment : Fragment() {
     private fun setupClickListeners() {
         binding.apply {
             btnSignupLog.setOnClickListener {
-                navigateToRegister()
+                findNavController().navigate(R.id.action_login_to_register)
             }
 
             tvForgetPassLogin.setOnClickListener {
-                navigateToForgetPassword()
+                findNavController().navigate(R.id.action_login_to_forget_password)
             }
 
             btnLoginLogin.setOnClickListener {
@@ -48,104 +44,48 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun navigateToRegister() {
-        try {
-            findNavController().navigate(R.id.action_login_to_register)
-        } catch (e: Exception) {
-            showErrorToast("حدث خطأ أثناء الانتقال إلى صفحة التسجيل")
-        }
-    }
-
-    private fun navigateToForgetPassword() {
-        try {
-            findNavController().navigate(R.id.action_login_to_forget_password)
-        } catch (e: Exception) {
-            showErrorToast("حدث خطأ أثناء الانتقال إلى صفحة نسيان كلمة المرور")
-        }
-    }
-
     private fun handleLogin() {
         val email = binding.emailLogin.text.toString().trim()
         val password = binding.passwordLogin.text.toString().trim()
 
-        if (email.isEmpty() || password.isEmpty()) {
-            showErrorToast("الرجاء إدخال البريد الإلكتروني وكلمة المرور")
-            return
+        if (validateInputs(email, password)) {
+            authenticateUser(email, password)
         }
+    }
 
-        try {
-            when {
-                email == "companion@gmail.com" && password == "123456" -> {
-                    storeUserType("Companion")
-                    navigateToCompanion()
-                }
-                email == "alzhaimer@gmail.com" && password == "123456" -> {
-                    storeUserType("Alzheimer")
-                    navigateToAlzheimer()
-                }
-                email == "blind@gmail.com" && password == "123456" -> {
-                    storeUserType("Blind")
-                    navigateToBlind()
-                }
-                else -> {
-                    showErrorToast("البريد الإلكتروني أو كلمة المرور غير صحيحة")
-                }
+    private fun validateInputs(email: String, password: String): Boolean {
+        return when {
+            email.isEmpty() -> {
+                requireContext().showToast("يرجى إدخال البريد الإلكتروني")
+                false
             }
-        } catch (e: Exception) {
-            showErrorToast("حدث خطأ أثناء تسجيل الدخول")
-        }
-    }
-
-    private fun navigateToCompanion() {
-        try {
-            findNavController().navigate(R.id.action_login_to_companion)
-        } catch (e: Exception) {
-            showErrorToast("حدث خطأ أثناء الانتقال إلى صفحة المرافق")
-        }
-    }
-
-    private fun navigateToAlzheimer() {
-        try {
-            findNavController().navigate(R.id.action_login_to_alzheimer)
-        } catch (e: Exception) {
-            showErrorToast("حدث خطأ أثناء الانتقال إلى صفحة مريض الزهايمر")
-        }
-    }
-
-    private fun navigateToBlind() {
-        try {
-            findNavController().navigate(R.id.action_login_to_blind)
-        } catch (e: Exception) {
-            showErrorToast("حدث خطأ أثناء الانتقال إلى صفحة المكفوف")
-        }
-    }
-
-    private fun storeUserType(userType: String) {
-        try {
-            val sharedPref = requireActivity().getSharedPreferences("MySightPrefs", AppCompatActivity.MODE_PRIVATE)
-            with(sharedPref.edit()) {
-                putString("USER_TYPE", userType)
-                apply()
+            password.isEmpty() -> {
+                requireContext().showToast("يرجى إدخال كلمة المرور")
+                false
             }
-        } catch (e: Exception) {
-            showErrorToast("حدث خطأ أثناء حفظ نوع المستخدم")
+            !email.contains("@") -> {
+                requireContext().showToast("البريد الإلكتروني غير صحيح")
+                false
+            }
+            else -> true
         }
     }
 
-    private fun showErrorToast(message: String) {
-        try {
-            val toast = Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT)
-            val view = toast.view
-
-            view?.background = ContextCompat.getDrawable(requireContext(), R.drawable.toast_background)
-
-            val text = view?.findViewById<TextView>(android.R.id.message)
-            text?.setTextColor(Color.BLACK)
-
-            toast.show()
-        } catch (e: Exception) {
-            // Fallback to simple toast if custom toast fails
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    private fun authenticateUser(email: String, password: String) {
+        // بدل من استخدام try-catch، نستخدم منطق بسيط هنا
+        when {
+            email == "companion@gmail.com" && password == "123456" -> {
+                findNavController().navigate(R.id.action_login_to_companion)
+            }
+            email == "alzhaimer@gmail.com" && password == "123456" -> {
+                findNavController().navigate(R.id.action_login_to_alzheimer)
+            }
+            email == "blind@gmail.com" && password == "123456" -> {
+                findNavController().navigate(R.id.action_login_to_blind)
+            }
+            else -> {
+                requireContext().showToast("البريد الإلكتروني أو كلمة المرور غير صحيحة")
+            }
         }
     }
 

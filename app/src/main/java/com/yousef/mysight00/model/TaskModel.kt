@@ -1,4 +1,4 @@
-package com.yousef.mysight00.ui.model
+package com.yousef.mysight00.model
 
 data class TaskModel(
     val name: String,

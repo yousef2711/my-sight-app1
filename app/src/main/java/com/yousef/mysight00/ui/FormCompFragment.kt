@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.yousef.mysight00.R
 import com.yousef.mysight00.databinding.FragmentFormCompBinding
 
+
 class FormCompFragment : Fragment() {
 
     private var _binding: FragmentFormCompBinding? = null

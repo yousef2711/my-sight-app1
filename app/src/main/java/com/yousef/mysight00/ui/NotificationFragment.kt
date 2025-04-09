@@ -10,6 +10,7 @@ import androidx.navigation.navOptions
 import com.yousef.mysight00.R
 import com.yousef.mysight00.databinding.FragmentNotificationBinding
 
+
 class NotificationFragment : Fragment() {
 
     private var _binding: FragmentNotificationBinding? = null
@@ -39,7 +40,7 @@ class NotificationFragment : Fragment() {
                     popExit = R.anim.slide_out_right
                 }
             }
-            findNavController().navigate(R.id.action_notificationFragment_to_tasksFragment, null, options)
+            findNavController().navigate(R.id.action_notification_to_tasks, null, options)
         }
     }
 
